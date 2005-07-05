@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.ibm.watson.sefari.feature"
+      label="SEFARI"
+      version="0.1.1"
+      provider-name="rfuhrer@watson.ibm.com"
+      os="win32"
+      ws="carbon,gtk,motif,photon,win32"
+      arch="x86">
+
+   <description url="http://orquesta.watson.ibm.com/eclipse/updates/sefari.html">
+      This feature provides the SEFARI framework for language-incremental
+analysis, refactoring, and IDE support.
+   </description>
+
+   <copyright url="http://orquesta.watson.ibm.com/eclipse/updates/sefari-copyright.html">
+      You are free to not copy anything contained in this archive. Except in the sense that none of us are completely free, as freedom implies responsibility, and therefore, a lack of freedom.
+   </copyright>
+
+   <license url="http://orquesta.watson.ibm.com/eclipse/updates/sefari-license.html">
+      You may use this plug-in, but not use it, for any purpose whatsoever,
+except any specific purpose.
+   </license>
+
+   <url>
+      <update label="SEFARI Eclipse Update Site" url="http://orquesta.watson.ibm.com/eclipse/updates/sefari"/>
+      <discovery label="Update site" url="http://orquesta.watson.ibm.com/eclipse/updates/sefari"/>
+   </url>
+
+   <requires>
+      <import feature="org.eclipse.jdt" version="3.1.0"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.help"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.pde"/>
+      <import plugin="org.eclipse.pde.build"/>
+      <import plugin="org.eclipse.pde.core"/>
+      <import plugin="org.eclipse.pde.ui"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.forms"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+   </requires>
+
+   <plugin
+         id="com.ibm.watson.sefari"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.uide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.jikespg.uide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>
