@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="com.ibm.watson.sefari.feature"
-      label="SEFARI"
+      id="com.ibm.watson.safari.feature"
+      label="SAFARI"
       version="0.1.1"
       provider-name="rfuhrer@watson.ibm.com"
       os="win32"
       ws="carbon,gtk,motif,photon,win32"
       arch="x86">
 
-   <description url="http://orquesta.watson.ibm.com/eclipse/updates/sefari.html">
-      This feature provides the SEFARI framework for language-incremental
+   <description url="http://orquesta.watson.ibm.com/eclipse/updates/safari.html">
+      This feature provides the SAFARI framework for language-incremental
 analysis, refactoring, and IDE support.
    </description>
 
-   <copyright url="http://orquesta.watson.ibm.com/eclipse/updates/sefari-copyright.html">
+   <copyright url="http://orquesta.watson.ibm.com/eclipse/updates/safari-copyright.html">
       You are free to not copy anything contained in this archive. Except in the sense that none of us are completely free, as freedom implies responsibility, and therefore, a lack of freedom.
    </copyright>
 
-   <license url="http://orquesta.watson.ibm.com/eclipse/updates/sefari-license.html">
+   <license url="http://orquesta.watson.ibm.com/eclipse/updates/safari-license.html">
       You may use this plug-in, but not use it, for any purpose whatsoever,
 except any specific purpose.
    </license>
 
    <url>
-      <update label="SEFARI Eclipse Update Site" url="http://orquesta.watson.ibm.com/eclipse/updates/sefari"/>
-      <discovery label="Update site" url="http://orquesta.watson.ibm.com/eclipse/updates/sefari"/>
+      <update label="SAFARI Eclipse Update Site" url="http://orquesta.watson.ibm.com/eclipse/updates/safari"/>
+      <discovery label="Update site" url="http://orquesta.watson.ibm.com/eclipse/updates/safari"/>
    </url>
 
    <requires>
@@ -46,12 +46,6 @@ except any specific purpose.
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
    </requires>
-
-   <plugin
-         id="com.ibm.watson.sefari"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
 
    <plugin
          id="org.eclipse.uide"
