@@ -18,12 +18,12 @@ analysis, refactoring, and IDE support.
    </copyright>
 
    <license url="http://orquesta.watson.ibm.com/eclipse/updates/safari-license.html">
-      You may use this plug-in, but not use it, for any purpose whatsoever,
+      You may use this software, but not use it, for any purpose whatsoever,
 except any specific purpose.
    </license>
 
    <url>
-      <update label="SAFARI Eclipse Update Site" url="http://orquesta.watson.ibm.com/eclipse/updates/safari"/>
+      <update label="SAFARI Eclipse Update Site" url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"/>
       <discovery label="Update site" url="http://orquesta.watson.ibm.com/eclipse/updates/safari"/>
    </url>
 
