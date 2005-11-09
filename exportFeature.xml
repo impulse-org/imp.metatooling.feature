@@ -17,14 +17,12 @@
 		<property name="feature.destination" value="${basedir}"/>
 	</target>
 
-	<target name="all.plugins" depends="init">
-		<ant antfile="exportPlugin.xml" dir="../org.eclipse.uide" target="${target}">
-		</ant>
-		<ant antfile="exportPlugin.xml" dir="../org.jikespg.uide" target="${target}">
-		</ant>
+	<target name="all.plugins" depends="build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.x10.compiler,build.x10.uide,build.safari.x10">
 	</target>
+
 	<target name="all.features" depends="init">
 	</target>
+
 	<target name="update.feature" depends="init">
 	</target>
 
@@ -53,7 +51,7 @@
 		</antcall>
 	</target>
 
-	<target name="build.update.jar" depends="init" description="Build the feature jar of: com.ibm.watson.safari.feature for an update site.">
+	<target name="build.update.jar" depends="init" description="Build the feature jar for SAFARI for an update site.">
 		<antcall target="all.children">
 			<param name="target" value="build.update.jar"/>
 		</antcall>
@@ -81,7 +79,6 @@
 		<copy todir="${feature.base}/features/com.ibm.watson.safari.feature_0.1.1" failonerror="true" overwrite="false">
 			<fileset dir="${basedir}" includes="feature.xml"			/>
 		</copy>
-		<eclipse.idReplacer featureFilePath="${feature.base}/features/com.ibm.watson.safari.feature_0.1.1/feature.xml"  selfVersion="0.1.1" featureIds="" pluginIds="org.eclipse.uide,1.0.1,org.jikespg.uide,1.0.1,"/>
 		<antcall target="rootFiles${os}_${ws}_${arch}"/>
 	</target>
 
@@ -89,11 +86,75 @@
 	</target>
 
 	<!-- RMF Copy the plugin jars to the 'plugins' folder so that exportUpdate script can see it -->
-	<target name="gather.plugin.jars">
+	<target name="gather.plugin.jars" depends="build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.x10.compiler,build.x10.uide">
 		<mkdir dir="plugins"/>
+		<copy todir="plugins" file="../org.eclipse.uide.runtime/org.eclipse.uide.runtime_1.0.0.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide/org.eclipse.uide_1.0.1.jar"/>
+		<copy todir="plugins" file="../lpg/lpg_1.0.0.jar"/>
 		<copy todir="plugins" file="../org.jikespg.uide/org.jikespg.uide_1.0.1.jar"/>
+		<copy todir="plugins" file="../polyglot2/polyglot2_1.0.0.jar"/>
+		<copy todir="plugins" file="../x10.compiler/x10.compiler_1.0.0.jar"/>
+		<copy todir="plugins" file="../x10.uide/x10.uide_1.0.0.jar"/>
+		<copy todir="plugins" file="../com.ibm.watson.safari.x10/com.ibm.watson.safari.x10_1.0.0.jar"/>
 	</target>
+
+	<!-- ========================================================================================= -->
+
+	<target name="build.uide.runtime">
+		<antcall target="build.child">
+			<param name="plugin.id" value="org.eclipse.uide.runtime"/>
+		</antcall>
+	</target>
+
+	<target name="build.uide" depends="build.uide.runtime">
+		<antcall target="build.child">
+			<param name="plugin.id" value="org.eclipse.uide"/>
+		</antcall>
+	</target>
+
+	<target name="build.jikespg">
+		<antcall target="build.child">
+			<param name="plugin.id" value="lpg"/>
+		</antcall>
+	</target>
+
+	<target name="build.jikespg.uide" depends="build.jikespg">
+		<antcall target="build.child">
+			<param name="plugin.id" value="org.jikespg.uide"/>
+		</antcall>
+	</target>
+
+	<target name="build.polyglot2">
+		<antcall target="build.child">
+			<param name="plugin.id" value="polyglot2"/>
+		</antcall>
+	</target>
+
+	<target name="build.x10.compiler">
+		<antcall target="build.child">
+			<param name="plugin.id" value="x10.compiler"/>
+		</antcall>
+	</target>
+
+	<target name="build.x10.uide" depends="build.x10.compiler">
+		<antcall target="build.child">
+			<param name="plugin.id" value="x10.uide"/>
+		</antcall>
+	</target>
+
+	<target name="build.safari.x10" depends="build.x10.compiler,build.uide.runtime">
+		<antcall target="build.child">
+			<param name="plugin.id" value="com.ibm.watson.safari.x10"/>
+		</antcall>
+	</target>
+
+	<!-- ========================================================================================= -->
+
+	<target name="build.child">
+		<ant antfile="../${plugin.id}/exportPlugin.xml" dir="../${plugin.id}" target="build.jars"/>
+	</target>
+
+	<!-- ========================================================================================= -->
 
 	<target name="zip.distribution" depends="init" description="Create a zip containing all the plug-ins and features for the feature: com.ibm.watson.safari.feature.">
 		<delete dir="${feature.temp.folder}"/>
