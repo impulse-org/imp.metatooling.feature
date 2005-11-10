@@ -20,10 +20,10 @@
 	</target>
 
 	<target name="all.plugins"
-		depends="build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.x10.compiler,build.x10.uide,build.safari.x10">
+		depends="build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.x10.compiler,build.x10.uide,build.safari.x10">
 	</target>
 
-	<target name="build.feature.jar" depends="init,all.plugins" description="Build the feature jar for SAFARI for an update site.">
+	<target name="build.feature.jar" depends="init" description="Build the feature jar for SAFARI for an update site.">
 		<property name="feature.base" value="${feature.temp.folder}"/>
 		<delete dir="${feature.temp.folder}"/>
 		<mkdir dir="${feature.temp.folder}"/>
@@ -37,21 +37,18 @@
 		<jar destfile="${feature.destination}/${feature.name}_${feature.version}.jar" basedir="${feature.temp.folder}/features/${feature.name}_${feature.version}"/>
 		<delete dir="${feature.temp.folder}"/>
 		<antcall target="gather.plugin.jars"/>
+		<echo message="Feature jar build complete."/>
 	</target>
 
 	<target name="gather.bin.parts" depends="init" if="feature.base">
 		<mkdir dir="${feature.base}/features/${feature.name}_${feature.version}"/>
 		<copy todir="${feature.base}/features/${feature.name}_${feature.version}" failonerror="true" overwrite="false">
-			<fileset dir="${basedir}" includes="feature.xml"			/>
+			<fileset dir="${basedir}" includes="feature.xml"/>
 		</copy>
-		<antcall target="rootFiles${os}_${ws}_${arch}"/>
-	</target>
-
-	<target name="rootFileswin32_carbon,gtk,motif,photon,win32_x86">
 	</target>
 
 	<!-- RMF Copy the plugin jars to the 'plugins' folder so that exportUpdate script can see it -->
-	<target name="gather.plugin.jars" depends="build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.x10.compiler,build.x10.uide">
+	<target name="gather.plugin.jars" depends="all.plugins">
 		<mkdir dir="plugins"/>
 		<copy todir="plugins" file="../org.eclipse.uide.runtime/org.eclipse.uide.runtime_1.0.0.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide/org.eclipse.uide_1.0.1.jar"/>
@@ -83,7 +80,7 @@
 		</antcall>
 	</target>
 
-	<target name="build.jikespg.uide" depends="build.jikespg">
+	<target name="build.jikespg.uide" depends="build.jikespg,build.uide.runtime,build.uide">
 		<antcall target="build.child">
 			<param name="plugin.id" value="org.jikespg.uide"/>
 		</antcall>
@@ -95,13 +92,13 @@
 		</antcall>
 	</target>
 
-	<target name="build.x10.compiler">
+	<target name="build.x10.compiler" depends="build.polyglot2,build.jikespg">
 		<antcall target="build.child">
 			<param name="plugin.id" value="x10.compiler"/>
 		</antcall>
 	</target>
 
-	<target name="build.x10.uide" depends="build.x10.compiler">
+	<target name="build.x10.uide" depends="build.x10.compiler,build.uide.runtime">
 		<antcall target="build.child">
 			<param name="plugin.id" value="x10.uide"/>
 		</antcall>
