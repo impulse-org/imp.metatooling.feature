@@ -1,60 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="com.ibm.watson.safari.feature" default="build.update.jar" basedir=".">
+<project name="com.ibm.watson.safari.feature" default="build.feature.jar" basedir=".">
 
 	<!-- RMF 8/12/2005 - I don't guarantee that any targets other than those invoked from
-	     build.update.jar (the default) actually work properly. -->
+	     build.feature.jar (the default) actually work properly. -->
 
 	<!-- RMF 8/12/2005 - N.B.: The targets all.plugins and gather.plugin.jars include a
 	     hard-wired list of plugins to include.
-	     I don't know how to drive this from the contents of feature.xml at the moment. -->
+	     I don't know how to derive this from the contents of feature.xml at the moment. -->
 
 	<!-- RMF 8/12/2005 - The gather.plugin.jars target collects all necessary jars into the
-		 "plugins" directory, where the exportUpdate script can find them, so that it need
-		 not know what jars they are (exportUpdate only knows what features it contains). -->
+	     "plugins" directory, where the exportUpdate script can find them, so that it need
+	     not know what jars they are (exportUpdate only knows what features it contains). -->
 
 	<target name="init">
+		<property name="feature.name"        value="com.ibm.watson.safari.feature"/>
+		<property name="feature.version"     value="0.1.1"/>
 		<property name="feature.temp.folder" value="${basedir}/feature.temp.folder"/>
 		<property name="feature.destination" value="${basedir}"/>
 	</target>
 
-	<target name="all.plugins" depends="build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.x10.compiler,build.x10.uide,build.safari.x10">
+	<target name="all.plugins"
+		depends="build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.x10.compiler,build.x10.uide,build.safari.x10">
 	</target>
 
-	<target name="all.features" depends="init">
-	</target>
-
-	<target name="update.feature" depends="init">
-	</target>
-
-	<target name="all.children" depends="init,all.features,all.plugins,update.feature">
-	</target>
-
-	<target name="children" if="include.children">
-		<antcall target="all.children"/>
-	</target>
-
-	<target name="build.jars" depends="init" description="Build all the jars for the feature: com.ibm.watson.safari.feature.">
-		<antcall target="all.children">
-			<param name="target" value="build.jars"/>
-		</antcall>
-	</target>
-
-	<target name="build.sources" depends="init">
-		<antcall target="all.children">
-			<param name="target" value="build.sources"/>
-		</antcall>
-	</target>
-
-	<target name="build.zips" depends="init">
-		<antcall target="all.children">
-			<param name="target" value="build.zips"/>
-		</antcall>
-	</target>
-
-	<target name="build.update.jar" depends="init" description="Build the feature jar for SAFARI for an update site.">
-		<antcall target="all.children">
-			<param name="target" value="build.update.jar"/>
-		</antcall>
+	<target name="build.feature.jar" depends="init,all.plugins" description="Build the feature jar for SAFARI for an update site.">
 		<property name="feature.base" value="${feature.temp.folder}"/>
 		<delete dir="${feature.temp.folder}"/>
 		<mkdir dir="${feature.temp.folder}"/>
@@ -65,18 +34,14 @@
 			<param name="os" value="win32"/>
 			<param name="feature.base" value="${feature.temp.folder}"/>
 		</antcall>
-		<jar destfile="${feature.destination}/com.ibm.watson.safari.feature_0.1.1.jar" basedir="${feature.temp.folder}/features/com.ibm.watson.safari.feature_0.1.1"/>
+		<jar destfile="${feature.destination}/${feature.name}_${feature.version}.jar" basedir="${feature.temp.folder}/features/${feature.name}_${feature.version}"/>
 		<delete dir="${feature.temp.folder}"/>
 		<antcall target="gather.plugin.jars"/>
 	</target>
 
 	<target name="gather.bin.parts" depends="init" if="feature.base">
-		<antcall target="children">
-			<param name="destination.temp.folder" value="${feature.base}/plugins"/>
-			<param name="target" value="gather.bin.parts"/>
-		</antcall>
-		<mkdir dir="${feature.base}/features/com.ibm.watson.safari.feature_0.1.1"/>
-		<copy todir="${feature.base}/features/com.ibm.watson.safari.feature_0.1.1" failonerror="true" overwrite="false">
+		<mkdir dir="${feature.base}/features/${feature.name}_${feature.version}"/>
+		<copy todir="${feature.base}/features/${feature.name}_${feature.version}" failonerror="true" overwrite="false">
 			<fileset dir="${basedir}" includes="feature.xml"			/>
 		</copy>
 		<antcall target="rootFiles${os}_${ws}_${arch}"/>
@@ -151,12 +116,12 @@
 	<!-- ========================================================================================= -->
 
 	<target name="build.child">
-		<ant antfile="../${plugin.id}/exportPlugin.xml" dir="../${plugin.id}" target="build.jars"/>
+		<ant antfile="../${plugin.id}/exportPlugin.xml" dir="../${plugin.id}" target="build.update.jar"/>
 	</target>
 
 	<!-- ========================================================================================= -->
 
-	<target name="zip.distribution" depends="init" description="Create a zip containing all the plug-ins and features for the feature: com.ibm.watson.safari.feature.">
+	<target name="zip.distribution" depends="init" description="Create a zip containing all the plug-ins and features for the feature: ${feature.name}.">
 		<delete dir="${feature.temp.folder}"/>
 		<mkdir dir="${feature.temp.folder}"/>
 		<antcall target="gather.bin.parts">
@@ -167,7 +132,7 @@
 			<param name="feature.base" value="${feature.temp.folder}"/>
 			<param name="os" value="win32"/>
 		</antcall>
-		<zip destfile="${feature.destination}/com.ibm.watson.safari.feature_0.1.1.bin.dist.zip" basedir="${feature.temp.folder}" filesonly="false" whenempty="skip" update="false"/>
+		<zip destfile="${feature.destination}/${feature.name}_${feature.version}.bin.dist.zip" basedir="${feature.temp.folder}" filesonly="false" whenempty="skip" update="false"/>
 		<delete dir="${feature.temp.folder}"/>
 	</target>
 
@@ -175,11 +140,11 @@
 		<delete dir="${feature.temp.folder}"/>
 		<mkdir dir="${feature.temp.folder}"/>
 		<antcall target="all.children">
-			<param name="destination.temp.folder" value="${feature.temp.folder}/plugins/com.ibm.watson.safari.feature.source_0.1.1/src"/>
+			<param name="destination.temp.folder" value="${feature.temp.folder}/plugins/${feature.name}.source_${feature.version}/src"/>
 			<param name="include.children" value="true"/>
 			<param name="target" value="gather.sources"/>
 		</antcall>
-		<zip destfile="${feature.destination}/com.ibm.watson.safari.feature_0.1.1.src.zip" basedir="${feature.temp.folder}" filesonly="true" whenempty="skip" update="false"/>
+		<zip destfile="${feature.destination}/${feature.name}_${feature.version}.src.zip" basedir="${feature.temp.folder}" filesonly="true" whenempty="skip" update="false"/>
 		<delete dir="${feature.temp.folder}"/>
 	</target>
 
@@ -191,15 +156,15 @@
 			<param name="include.children" value="true"/>
 			<param name="target" value="gather.logs"/>
 		</antcall>
-		<zip destfile="${feature.destination}/com.ibm.watson.safari.feature_0.1.1.log.zip" basedir="${feature.temp.folder}" filesonly="true" whenempty="skip" update="false"/>
+		<zip destfile="${feature.destination}/${feature.name}_${feature.version}.log.zip" basedir="${feature.temp.folder}" filesonly="true" whenempty="skip" update="false"/>
 		<delete dir="${feature.temp.folder}"/>
 	</target>
 
-	<target name="clean" depends="init" description="Clean the feature: com.ibm.watson.safari.feature of all the zips, jars and logs created.">
-		<delete file="${feature.destination}/com.ibm.watson.safari.feature_0.1.1.jar"/>
-		<delete file="${feature.destination}/com.ibm.watson.safari.feature_0.1.1.bin.dist.zip"/>
-		<delete file="${feature.destination}/com.ibm.watson.safari.feature_0.1.1.log.zip"/>
-		<delete file="${feature.destination}/com.ibm.watson.safari.feature_0.1.1.src.zip"/>
+	<target name="clean" depends="init" description="Clean the feature: ${feature.name} of all the zips, jars and logs created.">
+		<delete file="${feature.destination}/${feature.name}_${feature.version}.jar"/>
+		<delete file="${feature.destination}/${feature.name}_${feature.version}.bin.dist.zip"/>
+		<delete file="${feature.destination}/${feature.name}_${feature.version}.log.zip"/>
+		<delete file="${feature.destination}/${feature.name}_${feature.version}.src.zip"/>
 		<delete dir="${feature.temp.folder}"/>
 		<antcall target="all.children">
 			<param name="target" value="clean"/>
@@ -207,7 +172,7 @@
 	</target>
 
 	<target name="refresh" depends="init" if="eclipse.running" description="Refresh this folder.">
-		<eclipse.convertPath fileSystemPath="E:/RMF/Eclipse/Workspaces/safari/com.ibm.watson.sefari.feature/" property="resourcePath"/>
+		<eclipse.convertPath fileSystemPath="E:/RMF/Eclipse/Workspaces/safari/${feature.name}/" property="resourcePath"/>
 		<eclipse.refreshLocal resource="${resourcePath}" depth="infinite"/>
 		<antcall target="all.children">
 			<param name="target" value="refresh"/>
@@ -215,7 +180,7 @@
 	</target>
 	<target name="gather.sources">
 		<antcall target="children">
-			<param name="destination.temp.folder" value="${feature.temp.folder}/plugins/com.ibm.watson.safari.feature.source_0.1.1/src"/>
+			<param name="destination.temp.folder" value="${feature.temp.folder}/plugins/${feature.name}.source_${feature.version}/src"/>
 			<param name="target" value="gather.sources"/>
 		</antcall>
 	</target>
@@ -227,5 +192,4 @@
 			<param name="target" value="gather.logs"/>
 		</antcall>
 	</target>
-
 </project>
