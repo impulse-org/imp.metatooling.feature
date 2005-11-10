@@ -20,7 +20,7 @@
 	</target>
 
 	<target name="all.plugins"
-		depends="build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.x10.compiler,build.x10.uide,build.safari.x10">
+		depends="build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
 	</target>
 
 	<target name="build.feature.jar" depends="init" description="Build the feature jar for SAFARI for an update site.">
@@ -55,6 +55,8 @@
 		<copy todir="plugins" file="../lpg/lpg_1.0.0.jar"/>
 		<copy todir="plugins" file="../org.jikespg.uide/org.jikespg.uide_1.0.1.jar"/>
 		<copy todir="plugins" file="../polyglot2/polyglot2_1.0.0.jar"/>
+		<copy todir="plugins" file="../pe/pe_1.0.0.jar"/>
+		<copy todir="plugins" file="../x10.runtime/x10.runtime_1.0.0.jar"/>
 		<copy todir="plugins" file="../x10.compiler/x10.compiler_1.0.0.jar"/>
 		<copy todir="plugins" file="../x10.uide/x10.uide_1.0.0.jar"/>
 		<copy todir="plugins" file="../com.ibm.watson.safari.x10/com.ibm.watson.safari.x10_1.0.0.jar"/>
@@ -89,6 +91,18 @@
 	<target name="build.polyglot2">
 		<antcall target="build.child">
 			<param name="plugin.id" value="polyglot2"/>
+		</antcall>
+	</target>
+
+	<target name="build.pe">
+		<antcall target="build.child">
+			<param name="plugin.id" value="pe"/>
+		</antcall>
+	</target>
+
+	<target name="build.x10.runtime" depends="build.pe">
+		<antcall target="build.child">
+			<param name="plugin.id" value="x10.runtime"/>
 		</antcall>
 	</target>
 
