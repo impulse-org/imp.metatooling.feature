@@ -5,9 +5,8 @@
       version="0.1.1"
       provider-name="rfuhrer@watson.ibm.com"
       plugin="com.ibm.watson.safari"
-      os="win32"
       ws="carbon,gtk,motif,photon,win32"
-      arch="x86">
+      arch="ia64,ia64_32,PA_RISC,ppc,sparc,x86,x86_64">
 
    <description url="http://orquesta.watson.ibm.com/eclipse/updates/safari.html">
       This feature provides the SAFARI framework for language-incremental
