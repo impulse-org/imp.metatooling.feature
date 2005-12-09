@@ -25,7 +25,7 @@ except any specific purpose.
 
    <url>
       <update label="SAFARI Eclipse Update Site" url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"/>
-      <discovery label="Update site" url="http://orquesta.watson.ibm.com/eclipse/updates/safari"/>
+      <discovery label="SAFARI Update Site" url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"/>
    </url>
 
    <requires>
