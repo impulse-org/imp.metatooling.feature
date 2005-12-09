@@ -14,7 +14,7 @@
 
 	<target name="init">
 		<property name="feature.name"        value="com.ibm.watson.safari.feature"/>
-		<property name="feature.version"     value="0.1.1"/>
+		<property name="feature.version"     value="1.0.3"/>
 		<property name="feature.temp.folder" value="${basedir}/feature.temp.folder"/>
 		<property name="feature.destination" value="${basedir}"/>
 	</target>
@@ -28,10 +28,10 @@
 		<delete dir="${feature.temp.folder}"/>
 		<mkdir dir="${feature.temp.folder}"/>
 		<antcall target="gather.bin.parts" inheritAll="false">
-			<param name="arch" value="x86"/>
+			<param name="arch" value="ia64,ia64_32,PA_RISC,ppc,sparc,x86,x86_64"/>
 			<param name="ws" value="carbon,gtk,motif,photon,win32"/>
 			<param name="nl" value="*"/>
-			<param name="os" value="win32"/>
+			<param name="os" value="aix,hpux,linux,macosx,qnx,solaris,win32"/>
 			<param name="feature.base" value="${feature.temp.folder}"/>
 		</antcall>
 		<jar destfile="${feature.destination}/${feature.name}_${feature.version}.jar" basedir="${feature.temp.folder}/features/${feature.name}_${feature.version}"/>
@@ -49,17 +49,20 @@
 
 	<!-- RMF Copy the plugin jars to the 'plugins' folder so that exportUpdate script can see it -->
 	<target name="gather.plugin.jars" depends="all.plugins">
+		<delete>
+			<fileset dir="plugins" includes="*.jar"/>
+		</delete>
 		<mkdir dir="plugins"/>
-		<copy todir="plugins" file="../org.eclipse.uide.runtime/org.eclipse.uide.runtime_1.0.0.jar"/>
-		<copy todir="plugins" file="../org.eclipse.uide/org.eclipse.uide_1.0.1.jar"/>
-		<copy todir="plugins" file="../lpg/lpg_1.0.0.jar"/>
-		<copy todir="plugins" file="../org.jikespg.uide/org.jikespg.uide_1.0.1.jar"/>
-		<copy todir="plugins" file="../polyglot2/polyglot2_1.0.0.jar"/>
-		<copy todir="plugins" file="../pe/pe_1.0.0.jar"/>
-		<copy todir="plugins" file="../x10.runtime/x10.runtime_1.0.0.jar"/>
-		<copy todir="plugins" file="../x10.compiler/x10.compiler_1.0.0.jar"/>
-		<copy todir="plugins" file="../x10.uide/x10.uide_1.0.0.jar"/>
-		<copy todir="plugins" file="../com.ibm.watson.safari.x10/com.ibm.watson.safari.x10_1.0.0.jar"/>
+		<copy todir="plugins" file="../org.eclipse.uide.runtime/org.eclipse.uide.runtime_${feature.version}.jar"/>
+		<copy todir="plugins" file="../org.eclipse.uide/org.eclipse.uide_${feature.version}.jar"/>
+		<copy todir="plugins" file="../lpg/lpg_${feature.version}.jar"/>
+		<copy todir="plugins" file="../org.jikespg.uide/org.jikespg.uide_${feature.version}.jar"/>
+		<copy todir="plugins" file="../polyglot2/polyglot2_${feature.version}.jar"/>
+		<copy todir="plugins" file="../pe/pe_${feature.version}.jar"/>
+		<copy todir="plugins" file="../x10.runtime/x10.runtime_${feature.version}.jar"/>
+		<copy todir="plugins" file="../x10.compiler/x10.compiler_${feature.version}.jar"/>
+		<copy todir="plugins" file="../x10.uide/x10.uide_${feature.version}.jar"/>
+		<copy todir="plugins" file="../com.ibm.watson.safari.x10/com.ibm.watson.safari.x10_${feature.version}.jar"/>
 	</target>
 
 	<!-- ========================================================================================= -->
@@ -136,12 +139,12 @@
 		<delete dir="${feature.temp.folder}"/>
 		<mkdir dir="${feature.temp.folder}"/>
 		<antcall target="gather.bin.parts">
-			<param name="arch" value="x86"/>
+			<param name="arch" value="ia64,ia64_32,PA_RISC,ppc,sparc,x86,x86_64"/>
 			<param name="ws" value="carbon,gtk,motif,photon,win32"/>
 			<param name="nl" value="*"/>
 			<param name="include.children" value="true"/>
 			<param name="feature.base" value="${feature.temp.folder}"/>
-			<param name="os" value="win32"/>
+			<param name="os" value="aix,hpux,linux,macosx,qnx,solaris,win32"/>
 		</antcall>
 		<zip destfile="${feature.destination}/${feature.name}_${feature.version}.bin.dist.zip" basedir="${feature.temp.folder}" filesonly="false" whenempty="skip" update="false"/>
 		<delete dir="${feature.temp.folder}"/>
