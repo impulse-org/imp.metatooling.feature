@@ -20,9 +20,11 @@
 	<property name="bootclasspath" refid="path_bootclasspath"/>
 	<property name="eclipse.home" value="f:/eclipse-3.1"/>
 
-    <property name="safari.version" value="1.0.4"/>
+	<xmlproperty file="feature.xml" prefix="safari"/>
 
-	<xmlproperty file="feature.xml" prefix="safari.feature"/>
+	<echo message="Building for SAFARI feature version ${safari.feature(version)}"/>
+
+    <property name="safari.version" value="${safari.feature(version)}"/>
 
 	<path id="path_eclipse.build.path">
 	    <fileset dir="${eclipse.home}/plugins">
