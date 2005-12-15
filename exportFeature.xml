@@ -14,14 +14,14 @@
 	     not know what jars they are (exportUpdate only knows what features it contains). -->
 
 	<target name="init">
-		<property name="feature.name"        value="com.ibm.watson.safari.feature"/>
+		<property name="feature.name"        value="${safari.feature(id)}"/>
 		<property name="feature.version"     value="${safari.version}"/>
 		<property name="feature.temp.folder" value="${basedir}/feature.temp.folder"/>
 		<property name="feature.destination" value="${basedir}"/>
 	</target>
 
 	<target name="all.plugins"
-		depends="build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
+		depends="build.safari,build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
 	</target>
 
 	<target name="build.feature.jar" depends="init" description="Build the feature jar for SAFARI for an update site.">
@@ -54,6 +54,7 @@
 			<fileset dir="plugins" includes="*.jar"/>
 		</delete>
 		<mkdir dir="plugins"/>
+		<copy todir="plugins" file="../com.ibm.watson.safari/com.ibm.watson.safari_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide.runtime/org.eclipse.uide.runtime_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide/org.eclipse.uide_${feature.version}.jar"/>
 		<copy todir="plugins" file="../lpg/lpg_${feature.version}.jar"/>
@@ -67,6 +68,12 @@
 	</target>
 
 	<!-- ========================================================================================= -->
+
+	<target name="build.safari">
+		<antcall target="build.child">
+			<param name="plugin.id" value="com.ibm.watson.safari"/>
+		</antcall>
+	</target>
 
 	<target name="build.uide.runtime">
 		<antcall target="build.child">
