@@ -78,8 +78,7 @@
          id="lpg"
          download-size="967"
          install-size="967"
-         version="1.0.5"
-         unpack="false"/>
+         version="1.0.5"/>
 
    <plugin
          id="polyglot2"
