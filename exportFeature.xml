@@ -21,7 +21,7 @@
 	</target>
 
 	<target name="all.plugins"
-		depends="build.safari,build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
+		depends="build.safari,build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.common,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
 	</target>
 
 	<target name="build.feature.jar" depends="init" description="Build the feature jar for SAFARI for an update site.">
@@ -61,6 +61,7 @@
 		<copy todir="plugins" file="../org.jikespg.uide/org.jikespg.uide_${feature.version}.jar"/>
 		<copy todir="plugins" file="../polyglot2/polyglot2_${feature.version}.jar"/>
 		<copy todir="plugins" file="../pe/pe_${feature.version}.jar"/>
+		<copy todir="plugins" file="../x10.common/x10.common_${feature.version}.jar"/>
 		<copy todir="plugins" file="../x10.runtime/x10.runtime_${feature.version}.jar"/>
 		<copy todir="plugins" file="../x10.compiler/x10.compiler_${feature.version}.jar"/>
 		<copy todir="plugins" file="../x10.uide/x10.uide_${feature.version}.jar"/>
@@ -108,6 +109,12 @@
 	<target name="build.pe">
 		<antcall target="build.child">
 			<param name="plugin.id" value="pe"/>
+		</antcall>
+	</target>
+
+	<target name="build.x10.common">
+		<antcall target="build.child">
+			<param name="plugin.id" value="x10.common"/>
 		</antcall>
 	</target>
 
