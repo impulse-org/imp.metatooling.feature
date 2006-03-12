@@ -21,7 +21,7 @@
 	</target>
 
 	<target name="all.plugins"
-		depends="build.safari,build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.common,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
+		depends="build.pde.core,build.safari,build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.common,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
 	</target>
 
 	<target name="build.feature.jar" depends="init" description="Build the feature jar for SAFARI for an update site.">
@@ -50,7 +50,7 @@
 
 	<!-- RMF Copy the plugin jars to the 'plugins' folder so that exportUpdate script can see it -->
 	<target name="gather.plugin.jars" depends="all.plugins">
-		<delete>
+		<delete failonerror="false">
 			<fileset dir="plugins" includes="*.jar"/>
 		</delete>
 		<mkdir dir="plugins"/>
@@ -66,6 +66,7 @@
 		<copy todir="plugins" file="../x10.compiler/x10.compiler_${feature.version}.jar"/>
 		<copy todir="plugins" file="../x10.uide/x10.uide_${feature.version}.jar"/>
 		<copy todir="plugins" file="../com.ibm.watson.safari.x10/com.ibm.watson.safari.x10_${feature.version}.jar"/>
+		<copy todir="plugins" file="../org.eclipse.pde.core/org.eclipse.pde.core_3.1.2.watson2.jar"/>
 	</target>
 
 	<!-- ========================================================================================= -->
@@ -140,6 +141,10 @@
 		<antcall target="build.child">
 			<param name="plugin.id" value="com.ibm.watson.safari.x10"/>
 		</antcall>
+	</target>
+
+	<target name="build.pde.core">
+		<ant antfile="../org.eclipse.pde.core/build.xml" dir="../org.eclipse.pde.core" target="build.update.jar"/>
 	</target>
 
 	<!-- ========================================================================================= -->
