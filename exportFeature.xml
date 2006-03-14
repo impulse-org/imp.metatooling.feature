@@ -21,7 +21,7 @@
 	</target>
 
 	<target name="all.plugins"
-		depends="build.pde.core,build.safari,build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.common,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
+		depends="build.pde.core,build.shrike,build.safari,build.smapi,build.smapifier,build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.common,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
 	</target>
 
 	<target name="build.feature.jar" depends="init" description="Build the feature jar for SAFARI for an update site.">
@@ -54,7 +54,10 @@
 			<fileset dir="plugins" includes="*.jar"/>
 		</delete>
 		<mkdir dir="plugins"/>
+		<copy tofile="plugins/com.ibm.shrike_1.0.0.jar" file="../com.ibm.shrike/com.ibm.shrike_${feature.version}.jar"/>
 		<copy todir="plugins" file="../com.ibm.watson.safari/com.ibm.watson.safari_${feature.version}.jar"/>
+		<copy todir="plugins" file="../com.ibm.watson.smapi/com.ibm.watson.smapi_${feature.version}.jar"/>
+		<copy todir="plugins" file="../com.ibm.watson.smapifier/com.ibm.watson.smapifier_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide.runtime/org.eclipse.uide.runtime_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide/org.eclipse.uide_${feature.version}.jar"/>
 		<copy todir="plugins" file="../lpg/lpg_${feature.version}.jar"/>
@@ -77,7 +80,25 @@
 		</antcall>
 	</target>
 
-	<target name="build.uide.runtime">
+	<target name="build.shrike">
+		<antcall target="build.child">
+			<param name="plugin.id" value="com.ibm.shrike"/>
+		</antcall>
+	</target>
+
+	<target name="build.smapi">
+		<antcall target="build.child">
+			<param name="plugin.id" value="com.ibm.watson.smapi"/>
+		</antcall>
+	</target>
+
+	<target name="build.smapifier" depends="build.smapi">
+		<antcall target="build.child">
+			<param name="plugin.id" value="com.ibm.watson.smapifier"/>
+		</antcall>
+	</target>
+
+	<target name="build.uide.runtime" depends="build.smapi">
 		<antcall target="build.child">
 			<param name="plugin.id" value="org.eclipse.uide.runtime"/>
 		</antcall>
