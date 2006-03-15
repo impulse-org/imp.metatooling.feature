@@ -69,7 +69,7 @@
 		<copy todir="plugins" file="../x10.compiler/x10.compiler_${feature.version}.jar"/>
 		<copy todir="plugins" file="../x10.uide/x10.uide_${feature.version}.jar"/>
 		<copy todir="plugins" file="../com.ibm.watson.safari.x10/com.ibm.watson.safari.x10_${feature.version}.jar"/>
-		<copy todir="plugins" file="../org.eclipse.pde.core/org.eclipse.pde.core_3.1.2.watson2.jar"/>
+		<copy todir="plugins" file="../org.eclipse.pde.core/org.eclipse.pde.core_3.1.2.watson3.jar"/>
 	</target>
 
 	<!-- ========================================================================================= -->
