@@ -21,7 +21,7 @@
 	</target>
 
 	<target name="all.plugins"
-		depends="build.pde.core,build.shrike,build.safari,build.smapi,build.smapifier,build.uide.runtime,build.uide,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.common,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
+		depends="build.pde.core,build.shrike,build.safari,build.smapi,build.smapifier,build.uide.runtime,build.uide,build.safari.cheatsheets,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.common,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
 	</target>
 
 	<target name="build.feature.jar" depends="init" description="Build the feature jar for SAFARI for an update site.">
@@ -60,6 +60,7 @@
 		<copy todir="plugins" file="../com.ibm.watson.smapifier/com.ibm.watson.smapifier_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide.runtime/org.eclipse.uide.runtime_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide/org.eclipse.uide_${feature.version}.jar"/>
+		<copy todir="plugins" file="../com.ibm.watson.safari.cheatsheets/com.ibm.watson.safari.cheatsheets_${feature.version}.jar"/>
 		<copy todir="plugins" file="../lpg/lpg_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.jikespg.uide/org.jikespg.uide_${feature.version}.jar"/>
 		<copy todir="plugins" file="../polyglot2/polyglot2_${feature.version}.jar"/>
@@ -107,6 +108,12 @@
 	<target name="build.uide" depends="build.uide.runtime">
 		<antcall target="build.child">
 			<param name="plugin.id" value="org.eclipse.uide"/>
+		</antcall>
+	</target>
+
+	<target name="build.safari.cheatsheets" depends="build.uide,build.jikespg.uide">
+		<antcall target="build.child">
+			<param name="plugin.id" value="com.ibm.watson.safari.cheatsheets"/>
 		</antcall>
 	</target>
 
