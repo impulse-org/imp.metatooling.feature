@@ -2,7 +2,7 @@
 <feature
       id="com.ibm.watson.safari"
       label="SAFARI Language Tools"
-      version="1.0.18"
+      version="1.0.19"
       provider-name="rfuhrer@watson.ibm.com"
       plugin="com.ibm.watson.safari"
       os="aix,hpux,linux,macosx,qnx,solaris,win32"
@@ -53,83 +53,83 @@
          id="org.eclipse.uide"
          download-size="37"
          install-size="37"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="org.jikespg.uide"
          download-size="330"
          install-size="330"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.uide.runtime"
          download-size="66"
          install-size="66"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="x10.compiler"
          download-size="411"
          install-size="411"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="lpg"
          download-size="967"
          install-size="967"
-         version="1.0.18"/>
+         version="1.0.19"/>
 
    <plugin
          id="polyglot2"
          download-size="970"
          install-size="970"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="com.ibm.watson.safari.x10"
          download-size="32"
          install-size="32"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="x10.uide"
          download-size="40"
          install-size="40"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="pe"
          download-size="55"
          install-size="55"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="x10.runtime"
          download-size="653"
          install-size="653"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="com.ibm.watson.safari"
          download-size="0"
          install-size="0"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="x10.common"
          download-size="1"
          install-size="1"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
@@ -150,21 +150,21 @@
          id="com.ibm.watson.smapi"
          download-size="0"
          install-size="0"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="com.ibm.watson.smapifier"
          download-size="0"
          install-size="0"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
    <plugin
          id="com.ibm.watson.safari.cheatsheets"
          download-size="0"
          install-size="0"
-         version="1.0.18"
+         version="1.0.19"
          unpack="false"/>
 
 </feature>
