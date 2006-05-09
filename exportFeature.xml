@@ -21,7 +21,7 @@
 	</target>
 
 	<target name="all.plugins"
-		depends="build.pde.core,build.shrike,build.safari,build.smapi,build.smapifier,build.uide.runtime,build.uide,build.safari.cheatsheets,build.jikespg,build.jikespg.uide,build.polyglot2,build.pe,build.x10.common,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
+		depends="build.pde.core,build.shrike,build.safari,build.smapi,build.smapifier,build.uide.runtime,build.uide,build.safari.cheatsheets,build.safari.xform,build.jikespg,build.jikespg.uide,build.polyglot2,build.x10.common,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
 	</target>
 
 	<target name="build.feature.jar" depends="init" description="Build the feature jar for SAFARI for an update site.">
@@ -56,21 +56,21 @@
 		<mkdir dir="plugins"/>
 		<copy tofile="plugins/com.ibm.shrike_1.0.0.jar" file="../com.ibm.shrike/com.ibm.shrike_${feature.version}.jar"/>
 		<copy todir="plugins" file="../com.ibm.watson.safari/com.ibm.watson.safari_${feature.version}.jar"/>
+		<copy todir="plugins" file="../com.ibm.watson.safari.cheatsheets/com.ibm.watson.safari.cheatsheets_${feature.version}.jar"/>
+		<copy todir="plugins" file="../com.ibm.watson.safari.xform/com.ibm.watson.safari.xform_${feature.version}.jar"/>
+		<copy todir="plugins" file="../com.ibm.watson.safari.x10/com.ibm.watson.safari.x10_${feature.version}.jar"/>
 		<copy todir="plugins" file="../com.ibm.watson.smapi/com.ibm.watson.smapi_${feature.version}.jar"/>
 		<copy todir="plugins" file="../com.ibm.watson.smapifier/com.ibm.watson.smapifier_${feature.version}.jar"/>
+		<copy todir="plugins" file="../lpg/lpg_${feature.version}.jar"/>
+		<copy todir="plugins" file="../org.eclipse.pde.core/org.eclipse.pde.core_3.1.2.watson3.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide.runtime/org.eclipse.uide.runtime_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide/org.eclipse.uide_${feature.version}.jar"/>
-		<copy todir="plugins" file="../com.ibm.watson.safari.cheatsheets/com.ibm.watson.safari.cheatsheets_${feature.version}.jar"/>
-		<copy todir="plugins" file="../lpg/lpg_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.jikespg.uide/org.jikespg.uide_${feature.version}.jar"/>
 		<copy todir="plugins" file="../polyglot2/polyglot2_${feature.version}.jar"/>
-		<copy todir="plugins" file="../pe/pe_${feature.version}.jar"/>
 		<copy todir="plugins" file="../x10.common/x10.common_${feature.version}.jar"/>
-		<copy todir="plugins" file="../x10.runtime/x10.runtime_${feature.version}.jar"/>
 		<copy todir="plugins" file="../x10.compiler/x10.compiler_${feature.version}.jar"/>
+		<copy todir="plugins" file="../x10.runtime/x10.runtime_${feature.version}.jar"/>
 		<copy todir="plugins" file="../x10.uide/x10.uide_${feature.version}.jar"/>
-		<copy todir="plugins" file="../com.ibm.watson.safari.x10/com.ibm.watson.safari.x10_${feature.version}.jar"/>
-		<copy todir="plugins" file="../org.eclipse.pde.core/org.eclipse.pde.core_3.1.2.watson3.jar"/>
 	</target>
 
 	<!-- ========================================================================================= -->
@@ -135,9 +135,9 @@
 		</antcall>
 	</target>
 
-	<target name="build.pe">
+	<target name="build.safari.xform" depends="build.jikespg,build.uide.runtime,build.jikespg.uide">
 		<antcall target="build.child">
-			<param name="plugin.id" value="pe"/>
+			<param name="plugin.id" value="com.ibm.watson.safari.xform"/>
 		</antcall>
 	</target>
 
@@ -147,7 +147,7 @@
 		</antcall>
 	</target>
 
-	<target name="build.x10.runtime" depends="build.pe">
+	<target name="build.x10.runtime">
 		<antcall target="build.child">
 			<param name="plugin.id" value="x10.runtime"/>
 		</antcall>
