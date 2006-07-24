@@ -2,17 +2,6 @@
 <project name="com.ibm.watson.safari.feature" default="build.feature.jar" basedir=".">
 	<import file="../com.ibm.watson.safari.feature/buildCommon.xml"/>
 
-	<!-- RMF 8/12/2005 - I don't guarantee that any targets other than those invoked from
-	     build.feature.jar (the default) actually work properly. -->
-
-	<!-- RMF 8/12/2005 - N.B.: The targets all.plugins and gather.plugin.jars include a
-	     hard-wired list of plugins to include.
-	     I don't know how to derive this from the contents of feature.xml at the moment. -->
-
-	<!-- RMF 8/12/2005 - The gather.plugin.jars target collects all necessary jars into the
-	     "plugins" directory, where the exportUpdate script can find them, so that it need
-	     not know what jars they are (exportUpdate only knows what features it contains). -->
-
 	<target name="init">
 		<property name="feature.name"        value="${safari.feature(id)}"/>
 		<property name="feature.version"     value="${safari.version}"/>
@@ -21,7 +10,7 @@
 	</target>
 
 	<target name="all.plugins"
-		depends="build.pde.core,build.shrike,build.safari,build.smapi,build.smapifier,build.uide.runtime,build.uide,build.safari.cheatsheets,build.safari.xform,build.jikespg,build.jikespg.uide,build.polyglot2,build.x10.common,build.x10.runtime,build.x10.compiler,build.x10.uide,build.safari.x10">
+		depends="build.pde.core,build.safari,build.uide,build.safari.cheatsheets">
 	</target>
 
 	<target name="build.feature.jar" depends="init" description="Build the feature jar for SAFARI for an update site.">
@@ -54,23 +43,10 @@
 			<fileset dir="plugins" includes="*.jar"/>
 		</delete>
 		<mkdir dir="plugins"/>
-		<copy tofile="plugins/com.ibm.shrike_1.0.0.jar" file="../com.ibm.shrike/com.ibm.shrike_${feature.version}.jar"/>
 		<copy todir="plugins" file="../com.ibm.watson.safari/com.ibm.watson.safari_${feature.version}.jar"/>
 		<copy todir="plugins" file="../com.ibm.watson.safari.cheatsheets/com.ibm.watson.safari.cheatsheets_${feature.version}.jar"/>
-		<copy todir="plugins" file="../com.ibm.watson.safari.xform/com.ibm.watson.safari.xform_${feature.version}.jar"/>
-		<copy todir="plugins" file="../com.ibm.watson.safari.x10/com.ibm.watson.safari.x10_${feature.version}.jar"/>
-		<copy todir="plugins" file="../com.ibm.watson.smapi/com.ibm.watson.smapi_${feature.version}.jar"/>
-		<copy todir="plugins" file="../com.ibm.watson.smapifier/com.ibm.watson.smapifier_${feature.version}.jar"/>
-		<copy todir="plugins" file="../lpg/lpg_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.pde.core/org.eclipse.pde.core_3.1.2.watson3.jar"/>
-		<copy todir="plugins" file="../org.eclipse.uide.runtime/org.eclipse.uide.runtime_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide/org.eclipse.uide_${feature.version}.jar"/>
-		<copy todir="plugins" file="../org.jikespg.uide/org.jikespg.uide_${feature.version}.jar"/>
-		<copy todir="plugins" file="../polyglot2/polyglot2_${feature.version}.jar"/>
-		<copy todir="plugins" file="../x10.common/x10.common_${feature.version}.jar"/>
-		<copy todir="plugins" file="../x10.compiler/x10.compiler_${feature.version}.jar"/>
-		<copy todir="plugins" file="../x10.runtime/x10.runtime_${feature.version}.jar"/>
-		<copy todir="plugins" file="../x10.uide/x10.uide_${feature.version}.jar"/>
 	</target>
 
 	<!-- ========================================================================================= -->
@@ -81,93 +57,15 @@
 		</antcall>
 	</target>
 
-	<target name="build.shrike">
-		<antcall target="build.child">
-			<param name="plugin.id" value="com.ibm.shrike"/>
-		</antcall>
-	</target>
-
-	<target name="build.smapi">
-		<antcall target="build.child">
-			<param name="plugin.id" value="com.ibm.watson.smapi"/>
-		</antcall>
-	</target>
-
-	<target name="build.smapifier" depends="build.smapi">
-		<antcall target="build.child">
-			<param name="plugin.id" value="com.ibm.watson.smapifier"/>
-		</antcall>
-	</target>
-
-	<target name="build.uide.runtime" depends="build.smapi">
-		<antcall target="build.child">
-			<param name="plugin.id" value="org.eclipse.uide.runtime"/>
-		</antcall>
-	</target>
-
-	<target name="build.uide" depends="build.uide.runtime">
+	<target name="build.uide">
 		<antcall target="build.child">
 			<param name="plugin.id" value="org.eclipse.uide"/>
 		</antcall>
 	</target>
 
-	<target name="build.safari.cheatsheets" depends="build.uide,build.jikespg.uide">
+	<target name="build.safari.cheatsheets" depends="build.uide">
 		<antcall target="build.child">
 			<param name="plugin.id" value="com.ibm.watson.safari.cheatsheets"/>
-		</antcall>
-	</target>
-
-	<target name="build.jikespg">
-		<antcall target="build.child">
-			<param name="plugin.id" value="lpg"/>
-		</antcall>
-	</target>
-
-	<target name="build.jikespg.uide" depends="build.jikespg,build.uide.runtime,build.uide">
-		<antcall target="build.child">
-			<param name="plugin.id" value="org.jikespg.uide"/>
-		</antcall>
-	</target>
-
-	<target name="build.polyglot2">
-		<antcall target="build.child">
-			<param name="plugin.id" value="polyglot2"/>
-		</antcall>
-	</target>
-
-	<target name="build.safari.xform" depends="build.jikespg,build.uide.runtime,build.jikespg.uide">
-		<antcall target="build.child">
-			<param name="plugin.id" value="com.ibm.watson.safari.xform"/>
-		</antcall>
-	</target>
-
-	<target name="build.x10.common">
-		<antcall target="build.child">
-			<param name="plugin.id" value="x10.common"/>
-		</antcall>
-	</target>
-
-	<target name="build.x10.runtime">
-		<antcall target="build.child">
-			<param name="plugin.id" value="x10.runtime"/>
-		</antcall>
-	</target>
-
-	<target name="build.x10.compiler" depends="build.polyglot2,build.jikespg">
-		<antcall target="build.child">
-			<param name="plugin.id" value="x10.compiler"/>
-		</antcall>
-	</target>
-
-	<target name="build.x10.uide" depends="build.x10.compiler,build.uide.runtime">
-		<antcall target="build.child">
-			<param name="plugin.id" value="x10.uide"/>
-		</antcall>
-	</target>
-
-	<target name="build.safari.x10" depends="build.x10.compiler,build.uide.runtime">
-		<antcall target="build.child">
-			<param name="plugin.id" value="com.ibm.watson.safari.x10"/>
 		</antcall>
 	</target>
 
