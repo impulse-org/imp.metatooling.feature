@@ -8,5 +8,4 @@
     <echo message="Building for SAFARI feature version ${safari.feature(version)}"/>
 
     <property name="safari.version" value="${safari.feature(version)}"/>
-
 </project>
