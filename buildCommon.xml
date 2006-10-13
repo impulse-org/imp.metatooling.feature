@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="common" basedir=".">
-    <import file="../com.ibm.watson.safari.update/buildCommon.xml"/>
+    <import file="../org.eclipse.safari.update/buildCommon.xml"/>
 
     <!-- Following assumes we're invoking the build from within some plugin project's top-level directory -->
-    <xmlproperty file="../com.ibm.watson.safari.feature/feature.xml" prefix="safari"/>
+    <xmlproperty file="../org.eclipse.safari.feature/feature.xml" prefix="safari"/>
 
     <echo message="Building for SAFARI feature version ${safari.feature(version)}"/>
 
