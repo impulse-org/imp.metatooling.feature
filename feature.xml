@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="com.ibm.watson.safari"
+      id="org.eclipse.safari"
       label="SAFARI Language Tools"
-      version="1.0.30"
+      version="1.0.31"
       provider-name="rfuhrer@watson.ibm.com"
-      plugin="com.ibm.watson.safari"
+      plugin="org.eclipse.safari"
       os="aix,hpux,linux,macosx,qnx,solaris,win32"
       ws="carbon,gtk,motif,photon,win32"
       arch="ia64,ia64_32,PA_RISC,ppc,sparc,x86,x86_64">
@@ -40,29 +40,22 @@
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
-      <import plugin="org.eclipse.pde.core"/>
-      <import plugin="org.eclipse.compare"/>
-      <import plugin="org.eclipse.debug.core"/>
-      <import plugin="org.eclipse.jdt.launching"/>
-      <import plugin="org.eclipse.debug.ui"/>
-      <import plugin="org.eclipse.jdt.debug.ui"/>
       <import feature="org.eclipse.jdt" version="3.1.0"/>
-      <import feature="org.eclipse.safari.runtime"/>
-      <import feature="org.eclipse.safari.jikespg"/>
+      <import feature="org.eclipse.safari.runtime" version="1.0.31" match="perfect"/>
+      <import plugin="lpg"/>
+      <import plugin="org.eclipse.uide.runtime"/>
+      <import plugin="polyglot2"/>
+      <import plugin="org.eclipse.team.core"/>
+      <import plugin="org.eclipse.update.configurator"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.ui.cheatsheets"/>
    </requires>
 
    <plugin
          id="org.eclipse.uide"
          download-size="37"
          install-size="37"
-         version="1.0.30"
-         unpack="false"/>
-
-   <plugin
-         id="com.ibm.watson.safari"
-         download-size="0"
-         install-size="0"
-         version="1.0.30"
+         version="1.0.31"
          unpack="false"/>
 
    <plugin
@@ -76,7 +69,14 @@
          id="com.ibm.watson.safari.cheatsheets"
          download-size="0"
          install-size="0"
-         version="1.0.30"
+         version="1.0.31"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.safari"
+         download-size="0"
+         install-size="0"
+         version="1.0.31"
          unpack="false"/>
 
 </feature>
