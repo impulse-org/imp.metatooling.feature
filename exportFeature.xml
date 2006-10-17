@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="com.ibm.watson.safari.feature" default="build.feature.jar" basedir=".">
+<project name="org.eclipse.safari.feature" default="build.feature.jar" basedir=".">
 	<import file="../org.eclipse.safari.feature/buildCommon.xml"/>
 	<import file="../org.eclipse.safari.update/buildFeatureCommon.xml"/>
 
@@ -20,7 +20,7 @@
 			<fileset dir="plugins" includes="*.jar"/>
 		</delete>
 		<mkdir dir="plugins"/>
-		<copy todir="plugins" file="../com.ibm.watson.safari/com.ibm.watson.safari_${feature.version}.jar"/>
+		<copy todir="plugins" file="../org.eclipse.safari/org.eclipse.safari_${feature.version}.jar"/>
 		<copy todir="plugins" file="../com.ibm.watson.safari.cheatsheets/com.ibm.watson.safari.cheatsheets_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.pde.core/org.eclipse.pde.core_3.1.2.watson3.jar"/>
 		<copy todir="plugins" file="../org.eclipse.uide/org.eclipse.uide_${feature.version}.jar"/>
@@ -30,7 +30,7 @@
 
 	<target name="build.safari">
 		<antcall target="build.child">
-			<param name="plugin.id" value="com.ibm.watson.safari"/>
+			<param name="plugin.id" value="org.eclipse.safari"/>
 		</antcall>
 	</target>
 
