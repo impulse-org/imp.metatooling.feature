@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.safari"
       label="SAFARI Language Tools"
-      version="1.0.31"
+      version="1.0.32"
       provider-name="rfuhrer@watson.ibm.com"
       plugin="org.eclipse.safari"
       os="aix,hpux,linux,macosx,qnx,solaris,win32"
@@ -41,7 +41,7 @@
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
       <import feature="org.eclipse.jdt" version="3.1.0"/>
-      <import feature="org.eclipse.safari.runtime" version="1.0.31" match="perfect"/>
+      <import feature="org.eclipse.safari.runtime" version="1.0.32" match="perfect"/>
       <import plugin="lpg"/>
       <import plugin="org.eclipse.uide.runtime"/>
       <import plugin="polyglot2"/>
@@ -55,7 +55,7 @@
          id="org.eclipse.uide"
          download-size="37"
          install-size="37"
-         version="1.0.31"
+         version="1.0.32"
          unpack="false"/>
 
    <plugin
@@ -69,14 +69,14 @@
          id="com.ibm.watson.safari.cheatsheets"
          download-size="0"
          install-size="0"
-         version="1.0.31"
+         version="1.0.32"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.safari"
          download-size="0"
          install-size="0"
-         version="1.0.31"
+         version="1.0.32"
          unpack="false"/>
 
 </feature>
