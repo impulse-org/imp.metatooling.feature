@@ -41,10 +41,10 @@
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
       <import feature="org.eclipse.jdt" version="3.1.0"/>
-      <import feature="org.eclipse.safari.runtime" version="1.0.40" match="perfect"/>
+      <import feature="org.eclipse.safari.runtime" version="1.0.41" match="perfect"/>
       <import plugin="lpg"/>
       <import plugin="org.eclipse.uide.runtime"/>
-      <import plugin="polyglot2"/>
+      <import plugin="polyglot2" version="2.0.0"/>
       <import plugin="org.eclipse.team.core"/>
       <import plugin="org.eclipse.update.configurator"/>
       <import plugin="org.eclipse.core.expressions"/>
