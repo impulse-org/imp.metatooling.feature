@@ -42,7 +42,7 @@
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
       <import feature="org.eclipse.jdt" version="3.1.0"/>
       <import feature="org.eclipse.safari.runtime" version="1.0.48" match="perfect"/>
-      <import feature="lpg.runtime.feature" version="2.0.1"/>
+      <import feature="lpg.runtime.feature" version="2.0.2"/>
       <import plugin="org.eclipse.uide.runtime"/>
       <import plugin="polyglot" version="2.2.0" match="equivalent"/>
       <import plugin="org.eclipse.team.core"/>
