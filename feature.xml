@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.safari"
-      label="SAFARI Language Tools"
+      label="%featureName"
       version="1.0.52"
-      provider-name="rfuhrer@watson.ibm.com"
+      provider-name="%providerName"
       plugin="org.eclipse.safari"
-      os="aix,hpux,linux,macosx,qnx,solaris,win32"
-      ws="carbon,gtk,motif,photon,win32"
-      arch="ia64,ia64_32,PA_RISC,ppc,sparc,x86,x86_64">
+      image="eclipse_update_120.jpg">
 
    <description url="http://orquesta.watson.ibm.com/eclipse/updates/safari.html">
-      This feature provides the SAFARI framework for language-incremental analysis, refactoring, and IDE support.
+      %description
    </description>
 
-   <copyright url="http://orquesta.watson.ibm.com/eclipse/updates/safari-copyright.html">
-      You are free to not copy anything contained in this archive. Except in the sense that none of us are completely free, as freedom implies responsibility, and therefore, a lack of freedom.
-   </copyright>
-
-   <license url="http://orquesta.watson.ibm.com/eclipse/updates/safari-license.html">
-      You may use this software, but not use it, for any purpose whatsoever, except any specific purpose.
+   <license url="%licenseURL">
+      %license
    </license>
 
    <url>
-      <update label="SAFARI Update Site" url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"/>
-      <discovery label="SAFARI Update Site" url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"/>
+      <update url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"
+              label="%updateSiteName"/>
+      <discovery url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"
+                 label="%updateSiteName"/>
    </url>
 
    <requires>
