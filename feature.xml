@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.safari"
       label="%featureName"
-      version="1.0.53"
+      version="1.0.54"
       provider-name="%providerName"
       plugin="org.eclipse.safari"
       image="eclipse_update_120.jpg">
@@ -37,7 +37,7 @@
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
       <import feature="org.eclipse.jdt" version="3.1.0"/>
-      <import feature="org.eclipse.safari.runtime" version="1.0.53" match="perfect"/>
+      <import feature="org.eclipse.safari.runtime" version="1.0.54" match="perfect"/>
       <import plugin="org.eclipse.uide.runtime"/>
       <import plugin="polyglot" version="2.2.0" match="equivalent"/>
       <import plugin="org.eclipse.team.core"/>
@@ -51,7 +51,7 @@
          id="org.eclipse.uide"
          download-size="37"
          install-size="37"
-         version="1.0.53"
+         version="1.0.54"
          unpack="false"/>
 
    <plugin
@@ -65,14 +65,14 @@
          id="com.ibm.watson.safari.cheatsheets"
          download-size="0"
          install-size="0"
-         version="1.0.53"
+         version="1.0.54"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.safari"
          download-size="0"
          install-size="0"
-         version="1.0.53"
+         version="1.0.54"
          unpack="false"/>
 
 </feature>
