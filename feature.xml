@@ -16,10 +16,8 @@
    </license>
 
    <url>
-      <update url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"
-              label="%updateSiteName"/>
-      <discovery url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"
-                 label="%updateSiteName"/>
+      <update label="%updateSiteName" url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"/>
+      <discovery label="%updateSiteName" url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"/>
    </url>
 
    <requires>
@@ -39,12 +37,12 @@
       <import feature="org.eclipse.jdt" version="3.1.0"/>
       <import feature="org.eclipse.safari.runtime" version="1.0.55" match="perfect"/>
       <import plugin="org.eclipse.uide.runtime"/>
-      <import plugin="polyglot" version="2.2.0" match="equivalent"/>
+      <import plugin="polyglot" version="2.2.2" match="equivalent"/>
       <import plugin="org.eclipse.team.core"/>
       <import plugin="org.eclipse.update.configurator"/>
       <import plugin="org.eclipse.core.expressions"/>
       <import plugin="org.eclipse.ui.cheatsheets"/>
-      <import feature="lpg.runtime" version="2.0.3"/>
+      <import feature="lpg.runtime" version="2.0.5"/>
    </requires>
 
    <plugin
