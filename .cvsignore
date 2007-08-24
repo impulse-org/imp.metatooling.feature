@@ -1,3 +1,4 @@
 com.ibm.watson.safari.feature_*.jar
 plugins
 com.ibm.watson.safari_*.jar
+org.eclipse.imp_*.jar

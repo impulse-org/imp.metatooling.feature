@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="org.eclipse.safari.feature" default="build.feature.jar" basedir=".">
-	<import file="../org.eclipse.safari.feature/buildCommon.xml"/>
-	<import file="../org.eclipse.safari.update/buildFeatureCommon.xml"/>
+	<import file="../org.eclipse.imp.feature/buildCommon.xml"/>
+	<import file="../org.eclipse.imp.update/buildFeatureCommon.xml"/>
 
 	<target name="init">
-		<property name="feature.name"        value="${safari.feature(id)}"/>
-		<property name="feature.version"     value="${safari.version}"/>
+		<property name="feature.name"        value="${imp.feature(id)}"/>
+		<property name="feature.version"     value="${imp.version}"/>
 		<property name="feature.temp.folder" value="${basedir}/feature.temp.folder"/>
 		<property name="feature.destination" value="${basedir}"/>
 	</target>
 
 	<target name="all.plugins"
-		depends="build.pde.core,build.safari,build.uide,build.safari.cheatsheets">
+		depends="build.imp.metatooling,build.imp.cheatsheets,build.imp.preferences,build.imp.prefspecs">
 	</target>
 
 	<!-- RMF Copy the plugin jars to the 'plugins' folder so that exportUpdate script can see it -->
@@ -20,33 +20,36 @@
 			<fileset dir="plugins" includes="*.jar"/>
 		</delete>
 		<mkdir dir="plugins"/>
-		<copy todir="plugins" file="../org.eclipse.safari/org.eclipse.safari_${feature.version}.jar"/>
-		<copy todir="plugins" file="../com.ibm.watson.safari.cheatsheets/com.ibm.watson.safari.cheatsheets_${feature.version}.jar"/>
-		<copy todir="plugins" file="../org.eclipse.pde.core/org.eclipse.pde.core_3.1.2.watson3.jar"/>
-		<copy todir="plugins" file="../org.eclipse.uide/org.eclipse.uide_${feature.version}.jar"/>
+		<copy todir="plugins" file="../org.eclipse.imp.metatooling/org.eclipse.imp.metatooling_${feature.version}.jar"/>
+		<copy todir="plugins" file="../org.eclipse.imp.preferences/org.eclipse.imp.preferences_${plugins.version.31}.jar"/>
+		<copy todir="plugins" file="../org.eclipse.imp.prefspecs/org.eclipse.imp.prefspecs_${plugins.version.31}.jar"/>
+		<copy todir="plugins" file="../org.eclipse.imp.metatooling/org.eclipse.imp.metatooling_${feature.version}.jar"/>
+		<copy todir="plugins" file="../org.eclipse.imp.cheatsheets/org.eclipse.imp.cheatsheets_${plugins.version.31}.jar"/>
 	</target>
 
 	<!-- ========================================================================================= -->
 
-	<target name="build.safari">
+	<target name="build.imp.metatooling">
 		<antcall target="build.child">
-			<param name="plugin.id" value="org.eclipse.safari"/>
+			<param name="plugin.id" value="org.eclipse.imp.metatooling"/>
 		</antcall>
 	</target>
 
-	<target name="build.uide">
+	<target name="build.imp.cheatsheets" depends="build.imp.metatooling">
 		<antcall target="build.child">
-			<param name="plugin.id" value="org.eclipse.uide"/>
+			<param name="plugin.id" value="org.eclipse.imp.cheatsheets"/>
 		</antcall>
 	</target>
 
-	<target name="build.safari.cheatsheets" depends="build.uide">
+	<target name="build.imp.prefspecs">
 		<antcall target="build.child">
-			<param name="plugin.id" value="com.ibm.watson.safari.cheatsheets"/>
+			<param name="plugin.id" value="org.eclipse.imp.preferences"/>
 		</antcall>
 	</target>
 
-	<target name="build.pde.core">
-		<ant antfile="../org.eclipse.pde.core/build.xml" dir="../org.eclipse.pde.core" target="build.update.jar"/>
+	<target name="build.imp.preferences">
+		<antcall target="build.child">
+			<param name="plugin.id" value="org.eclipse.imp.prefspecs"/>
+		</antcall>
 	</target>
 </project>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="common" basedir=".">
-    <import file="../org.eclipse.safari.update/buildCommon.xml"/>
+    <import file="../org.eclipse.imp.update/buildCommon.xml"/>
 
     <!-- Following assumes we're invoking the build from within some plugin project's top-level directory -->
-    <xmlproperty file="../org.eclipse.safari.feature/feature.xml" prefix="safari"/>
+    <xmlproperty file="../org.eclipse.imp.feature/feature.xml" prefix="imp"/>
 
-    <echo message="Building for SAFARI feature version ${safari.feature(version)}"/>
+    <echo message="Building for IMP feature version ${imp.feature(version)}"/>
 
-    <property name="safari.version" value="${safari.feature(version)}"/>
+    <property name="imp.version" value="${imp.feature(version)}"/>
 </project>
