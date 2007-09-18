@@ -7,7 +7,7 @@
       plugin="org.eclipse.imp.metatooling"
       image="eclipse_update_120.jpg">
 
-   <description url="http://orquesta.watson.ibm.com/eclipse/updates/safari.html">
+   <description url="http://eclipse-imp.sourceforge.net/updates/">
       %description
    </description>
 
@@ -16,7 +16,7 @@
    </license>
 
    <url>
-      <update label="%updateSiteName" url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"/>
+      <update label="%updateSiteName" url="http://eclipse-imp.sourceforge.net/updates/"/>
       <discovery label="%updateSiteName" url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"/>
    </url>
 
