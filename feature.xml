@@ -23,9 +23,9 @@
    <requires>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.jdt.core" version=""/>
-      <import plugin="org.eclipse.jdt.ui" version=""/>
-      <import plugin="org.eclipse.jface.text" version=""/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.jface.text"/>
       <import plugin="org.eclipse.pde"/>
       <import plugin="org.eclipse.pde.ui"/>
       <import plugin="org.eclipse.ui"/>
