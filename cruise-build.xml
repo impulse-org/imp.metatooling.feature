@@ -1,4 +1,4 @@
-<project name="com.ibm.watson.safari.feature" default="all">
+<project name="org.eclipse.imp.feature" default="all">
     <target name="all" depends="build, test, publish"/>
 
     <target name="build">
