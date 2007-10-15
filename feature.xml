@@ -40,7 +40,7 @@
       <import plugin="org.eclipse.team.core"/>
       <import plugin="org.eclipse.update.configurator"/>
       <import plugin="org.eclipse.core.expressions"/>
-      <import plugin="org.eclipse.ui.cheatsheets" version=""/>
+      <import plugin="org.eclipse.ui.cheatsheets"/>
       <import feature="lpg.runtime" version="2.0.8"/>
    </requires>
 
