@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.imp"
       label="%featureName"
-      version="3.2.67"
+      version="3.2.68"
       provider-name="%providerName"
       plugin="org.eclipse.imp.metatooling"
       image="eclipse_update_120.jpg">
@@ -35,7 +35,7 @@
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
       <import feature="org.eclipse.jdt" version="3.1.0"/>
-      <import feature="org.eclipse.imp.runtime" version="3.2.67" match="perfect"/>
+      <import feature="org.eclipse.imp.runtime" version="3.2.68" match="perfect"/>
       <import plugin="polyglot" version="2.3.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.team.core"/>
       <import plugin="org.eclipse.update.configurator"/>
@@ -48,28 +48,28 @@
          id="org.eclipse.imp.cheatsheets"
          download-size="36"
          install-size="36"
-         version="1.0.66"
+         version="1.0.68"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.metatooling"
          download-size="442"
          install-size="442"
-         version="3.2.66"
+         version="3.2.68"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.preferences"
          download-size="14"
          install-size="14"
-         version="1.0.66"
+         version="1.0.68"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.prefspecs"
          download-size="280"
          install-size="280"
-         version="1.0.66"
+         version="1.0.68"
          unpack="false"/>
 
 </feature>
