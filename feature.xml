@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feature id="org.eclipse.imp" image="eclipse_update_120.jpg" label="%featureName" plugin="org.eclipse.imp.metatooling" provider-name="%providerName" version="3.2.71">
+<feature id="org.eclipse.imp" image="eclipse_update_120.jpg" label="%featureName" plugin="org.eclipse.imp.metatooling" provider-name="%providerName" version="3.2.72">
 
    <description url="http://eclipse-imp.sourceforge.net/updates/">
       %description
@@ -29,7 +29,7 @@
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
       <import feature="org.eclipse.jdt" version="3.1.0"/>
-      <import feature="org.eclipse.imp.runtime" match="greaterOrEqual" version="3.2.71"/>
+      <import feature="org.eclipse.imp.runtime" match="greaterOrEqual" version="3.2.72"/>
       <import match="greaterOrEqual" plugin="polyglot" version="2.3.0"/>
       <import plugin="org.eclipse.team.core"/>
       <import plugin="org.eclipse.update.configurator"/>
@@ -38,12 +38,12 @@
       <import feature="lpg.runtime" match="greaterOrEqual" version="2.0.10"/>
    </requires>
 
-   <plugin download-size="36" id="org.eclipse.imp.cheatsheets" install-size="36" unpack="false" version="1.0.71"/>
+   <plugin download-size="36" id="org.eclipse.imp.cheatsheets" install-size="36" unpack="false" version="1.0.72"/>
 
-   <plugin download-size="442" id="org.eclipse.imp.metatooling" install-size="442" unpack="false" version="3.2.71"/>
+   <plugin download-size="442" id="org.eclipse.imp.metatooling" install-size="442" unpack="false" version="3.2.72"/>
 
-   <plugin download-size="14" id="org.eclipse.imp.preferences" install-size="14" unpack="false" version="1.0.71"/>
+   <plugin download-size="14" id="org.eclipse.imp.preferences" install-size="14" unpack="false" version="1.0.72"/>
 
-   <plugin download-size="280" id="org.eclipse.imp.prefspecs" install-size="280" unpack="false" version="1.0.71"/>
+   <plugin download-size="280" id="org.eclipse.imp.prefspecs" install-size="280" unpack="false" version="1.0.72"/>
 
 </feature>
