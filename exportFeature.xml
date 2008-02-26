@@ -20,11 +20,23 @@
 			<fileset dir="plugins" includes="*.jar"/>
 		</delete>
 		<mkdir dir="plugins"/>
-		<copy todir="plugins" file="../org.eclipse.imp.metatooling/org.eclipse.imp.metatooling_${feature.version}.jar"/>
+		<antcall target="copy.child">
+			<param name="plugin.id" value="org.eclipse.imp.metatooling"/>
+		</antcall>
+		<antcall target="copy.child">
+			<param name="plugin.id" value="org.eclipse.imp.preferences"/>
+		</antcall>
+		<antcall target="copy.child">
+			<param name="plugin.id" value="org.eclipse.imp.prefspecs"/>
+		</antcall>
+		<antcall target="copy.child">
+			<param name="plugin.id" value="org.eclipse.imp.cheatsheets"/>
+		</antcall>
+<!--	<copy todir="plugins" file="../org.eclipse.imp.metatooling/org.eclipse.imp.metatooling_${feature.version}.jar"/
 		<copy todir="plugins" file="../org.eclipse.imp.preferences/org.eclipse.imp.preferences_${plugins.version.31}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.imp.prefspecs/org.eclipse.imp.prefspecs_${plugins.version.31}.jar"/>
-		<copy todir="plugins" file="../org.eclipse.imp.metatooling/org.eclipse.imp.metatooling_${feature.version}.jar"/>
 		<copy todir="plugins" file="../org.eclipse.imp.cheatsheets/org.eclipse.imp.cheatsheets_${plugins.version.31}.jar"/>
+  -->
 	</target>
 
 	<!-- ========================================================================================= -->
