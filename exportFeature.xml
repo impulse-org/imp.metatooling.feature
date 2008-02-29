@@ -8,60 +8,42 @@
 		<property name="feature.version"     value="${imp.version}"/>
 		<property name="feature.temp.folder" value="${basedir}/feature.temp.folder"/>
 		<property name="feature.destination" value="${basedir}"/>
+
+		<loadfile property="plugins.list" srcfile="feature.xml">
+			<filterchain>
+				<containsregex pattern="&lt;plugin"/>
+				<replaceregex pattern="[ \t]*&lt;plugin .* id=&quot;([^&quot;]*)&quot;.*" replace="\1,"/>
+				<tokenfilter>
+					<filetokenizer/>
+					<replaceregex pattern=",[\r\n]* *" replace="," flags="gs"/>
+				</tokenfilter>
+			</filterchain>
+		</loadfile>
+		<echo message="Feature contains the following plugins: ${plugins.list}"/>
 	</target>
 
-	<target name="all.plugins"
-		depends="build.imp.metatooling,build.imp.cheatsheets,build.imp.preferences,build.imp.prefspecs">
+	<target name="build.all.plugins" depends="init">
+		<for param="plugin.id" values="${plugins.list}">
+			<antcall target="build.child">
+				<param name="plugin.id" value="${plugin.id}"/>
+			</antcall>
+		</for>
+	</target>
+
+	<target name="echo.child">
+		<echo message="Processing ${plugin.id}"/>
 	</target>
 
 	<!-- RMF Copy the plugin jars to the 'plugins' folder so that exportUpdate script can see it -->
-	<target name="gather.plugin.jars" depends="all.plugins">
+	<target name="gather.plugin.jars" depends="build.all.plugins">
 		<delete failonerror="false">
 			<fileset dir="plugins" includes="*.jar"/>
 		</delete>
 		<mkdir dir="plugins"/>
-		<antcall target="copy.child">
-			<param name="plugin.id" value="org.eclipse.imp.metatooling"/>
-		</antcall>
-		<antcall target="copy.child">
-			<param name="plugin.id" value="org.eclipse.imp.preferences"/>
-		</antcall>
-		<antcall target="copy.child">
-			<param name="plugin.id" value="org.eclipse.imp.prefspecs"/>
-		</antcall>
-		<antcall target="copy.child">
-			<param name="plugin.id" value="org.eclipse.imp.cheatsheets"/>
-		</antcall>
-<!--	<copy todir="plugins" file="../org.eclipse.imp.metatooling/org.eclipse.imp.metatooling_${feature.version}.jar"/
-		<copy todir="plugins" file="../org.eclipse.imp.preferences/org.eclipse.imp.preferences_${plugins.version.31}.jar"/>
-		<copy todir="plugins" file="../org.eclipse.imp.prefspecs/org.eclipse.imp.prefspecs_${plugins.version.31}.jar"/>
-		<copy todir="plugins" file="../org.eclipse.imp.cheatsheets/org.eclipse.imp.cheatsheets_${plugins.version.31}.jar"/>
-  -->
-	</target>
-
-	<!-- ========================================================================================= -->
-
-	<target name="build.imp.metatooling">
-		<antcall target="build.child">
-			<param name="plugin.id" value="org.eclipse.imp.metatooling"/>
-		</antcall>
-	</target>
-
-	<target name="build.imp.cheatsheets" depends="build.imp.metatooling">
-		<antcall target="build.child">
-			<param name="plugin.id" value="org.eclipse.imp.cheatsheets"/>
-		</antcall>
-	</target>
-
-	<target name="build.imp.prefspecs">
-		<antcall target="build.child">
-			<param name="plugin.id" value="org.eclipse.imp.preferences"/>
-		</antcall>
-	</target>
-
-	<target name="build.imp.preferences">
-		<antcall target="build.child">
-			<param name="plugin.id" value="org.eclipse.imp.prefspecs"/>
-		</antcall>
+		<for param="plugin.id" values="${plugins.list}">
+			<antcall target="copy.child">
+				<param name="plugin.id" value="${plugin.id}"/>
+			</antcall>
+		</for>
 	</target>
 </project>
