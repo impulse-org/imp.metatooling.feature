@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+    <provider id="org.eclipse.team.cvs.core.cvsnature">
+        <project reference="1.0,:extssh:eclipse-imp.cvs.sourceforge.net:/cvsroot/eclipse-imp,org.eclipse.imp.metatooling,org.eclipse.imp.metatooling"/>
+        <project reference="1.0,:extssh:eclipse-imp.cvs.sourceforge.net:/cvsroot/eclipse-imp,org.eclipse.imp.preferences,org.eclipse.imp.preferences"/>
+        <project reference="1.0,:extssh:eclipse-imp.cvs.sourceforge.net:/cvsroot/eclipse-imp,org.eclipse.imp.cheatsheets,org.eclipse.imp.cheatsheets"/>
+        <project reference="1.0,:extssh:eclipse-imp.cvs.sourceforge.net:/cvsroot/eclipse-imp,org.eclipse.imp.prefspecs,org.eclipse.imp.prefspecs"/>
+    </provider>
+</psf>
