@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<psf version="2.0">
-    <provider id="org.tigris.subversion.subclipse.core.svnnature">
-        <project reference="0.9.3,https://dev.eclipse.org/svnroot/technology/org.eclipse.imp/org.eclipse.imp.metatooling/trunk,org.eclipse.imp.metatooling"/>
-        <project reference="0.9.3,https://dev.eclipse.org/svnroot/technology/org.eclipse.imp/org.eclipse.imp.preferences/trunk,org.eclipse.imp.preferences"/>
-        <project reference="0.9.3,https://dev.eclipse.org/svnroot/technology/org.eclipse.imp/org.eclipse.imp.cheatsheets/trunk,org.eclipse.imp.cheatsheets"/>
-        <project reference="0.9.3,https://dev.eclipse.org/svnroot/technology/org.eclipse.imp/org.eclipse.imp.prefspecs/trunk,org.eclipse.imp.prefspecs"/>
-    </provider>
-</psf>
