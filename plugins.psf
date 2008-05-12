@@ -5,6 +5,7 @@
 		<project reference="0.9.3,https://dev.eclipse.org/svnroot/technology/org.eclipse.imp/org.eclipse.imp.asl/trunk,org.eclipse.imp.asl"/>
 		<project reference="0.9.3,https://dev.eclipse.org/svnroot/technology/org.eclipse.imp/org.eclipse.imp.asl.ui/trunk,org.eclipse.imp.asl.ui"/>
 		<project reference="0.9.3,https://dev.eclipse.org/svnroot/technology/org.eclipse.imp/org.eclipse.imp.cheatsheets/trunk,org.eclipse.imp.cheatsheets"/>
+		<project reference="0.9.3,https://dev.eclipse.org/svnroot/technology/org.eclipse.imp/org.eclipse.imp.formatting/trunk,org.eclipse.imp.formatting"/>
 		<project reference="0.9.3,https://dev.eclipse.org/svnroot/technology/org.eclipse.imp/org.eclipse.imp.lpg/trunk,org.eclipse.imp.lpg"/>
 		<project reference="0.9.3,https://dev.eclipse.org/svnroot/technology/org.eclipse.imp/org.eclipse.imp.lpg.analysis/trunk,org.eclipse.imp.lpg.analysis"/>
 		<project reference="0.9.3,https://dev.eclipse.org/svnroot/technology/org.eclipse.imp/org.eclipse.imp.lpg.metatooling/trunk,org.eclipse.imp.lpg.metatooling"/>
