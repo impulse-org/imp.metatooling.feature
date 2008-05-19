@@ -5,7 +5,7 @@
     <!-- Following assumes we're invoking the build from within some plugin project's top-level directory -->
     <xmlproperty file="../org.eclipse.imp.feature/feature.xml" prefix="imp"/>
 
-    <echo message="Building for IMP feature version ${imp.feature(version)}"/>
+    <echo message="Building for IMP Meta-tooling feature version ${imp.feature(version)}"/>
 
     <property name="imp.version" value="${imp.feature(version)}"/>
 </project>
