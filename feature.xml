@@ -7,7 +7,7 @@
       plugin="org.eclipse.imp.metatooling"
       image="eclipse_update_120.jpg">
 
-   <description url="http://eclipse-imp.sourceforge.net/updates/">
+   <description url="http://dev.eclipse.org/imp">
       %description
    </description>
 
@@ -17,7 +17,7 @@
 
    <url>
       <update label="%updateSiteName" url="http://dev.eclipse.org/technology/imp/updates"/>
-      <discovery label="%updateSiteName" url="http://orquesta.watson.ibm.com/eclipse/updates/SAFARI/"/>
+      <discovery label="%updateSiteName" url="http://dev.eclipse.org/technology/imp/updates"/>
    </url>
 
    <requires>
@@ -35,12 +35,12 @@
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
       <import feature="org.eclipse.jdt"/>
-      <import feature="org.eclipse.imp.runtime" version="0.1.85" match="greaterOrEqual"/>
+      <import feature="org.eclipse.imp.runtime" version="0.1.89" match="greaterOrEqual"/>
       <import plugin="org.eclipse.team.core"/>
       <import plugin="org.eclipse.update.configurator"/>
       <import plugin="org.eclipse.core.expressions"/>
       <import plugin="org.eclipse.ui.cheatsheets"/>
-      <import feature="lpg.runtime" version="2.0.12" match="greaterOrEqual"/>
+      <import feature="lpg.runtime" version="2.0.16" match="greaterOrEqual"/>
    </requires>
 
    <plugin
