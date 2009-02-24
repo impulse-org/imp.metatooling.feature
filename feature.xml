@@ -7,7 +7,7 @@
       plugin="org.eclipse.imp.metatooling"
       image="eclipse_update_120.jpg">
 
-   <description url="http://dev.eclipse.org/imp">
+   <description url="http://www.eclipse.org/imp">
       %description
    </description>
 
@@ -16,8 +16,8 @@
    </license>
 
    <url>
-      <update label="%updateSiteName" url="http://dev.eclipse.org/technology/imp/updates"/>
-      <discovery label="%updateSiteName" url="http://dev.eclipse.org/technology/imp/updates"/>
+      <update label="%updateSiteName" url="http://download.eclipse.org/technology/imp/updates"/>
+      <discovery label="%updateSiteName" url="http://download.eclipse.org/technology/imp/updates"/>
    </url>
 
    <requires>
