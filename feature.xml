@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.imp"
       label="%featureName"
-      version="0.1.87"
+      version="0.1.88"
       provider-name="%providerName"
       plugin="org.eclipse.imp.metatooling"
       image="eclipse_update_120.jpg">
@@ -54,7 +54,7 @@
          id="org.eclipse.imp.metatooling"
          download-size="442"
          install-size="442"
-         version="0.1.85"
+         version="0.1.86"
          unpack="false"/>
 
    <plugin
@@ -68,14 +68,14 @@
          id="org.eclipse.imp.prefspecs"
          download-size="280"
          install-size="280"
-         version="0.1.83"
+         version="0.1.84"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.presentation"
          download-size="0"
          install-size="0"
-         version="0.1.3"
+         version="0.1.4"
          unpack="false"/>
 
 </feature>
