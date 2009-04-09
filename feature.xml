@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.imp"
+      id="org.eclipse.imp.metatooling"
       label="%featureName"
-      version="0.1.91"
+      version="0.1.92"
       provider-name="%providerName"
       plugin="org.eclipse.imp.metatooling"
       image="eclipse_update_120.jpg">
@@ -35,7 +35,7 @@
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
       <import feature="org.eclipse.jdt"/>
-      <import feature="org.eclipse.imp.runtime" version="0.1.90" match="greaterOrEqual"/>
+      <import feature="org.eclipse.imp.runtime" version="0.1.97" match="greaterOrEqual"/>
       <import plugin="org.eclipse.team.core"/>
       <import plugin="org.eclipse.update.configurator"/>
       <import plugin="org.eclipse.core.expressions"/>
@@ -47,35 +47,35 @@
          id="org.eclipse.imp.cheatsheets"
          download-size="36"
          install-size="36"
-         version="0.1.80"
+         version="0.1.81"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.metatooling"
          download-size="442"
          install-size="442"
-         version="0.1.88"
+         version="0.1.89"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.preferences"
          download-size="14"
          install-size="14"
-         version="0.1.82"
+         version="0.1.83"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.prefspecs"
          download-size="280"
          install-size="280"
-         version="0.1.85"
+         version="0.1.86"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.presentation"
          download-size="0"
          install-size="0"
-         version="0.1.4"
+         version="0.1.5"
          unpack="false"/>
 
 </feature>

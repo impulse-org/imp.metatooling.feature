@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="org.eclipse.imp.feature" default="build.feature.jar" basedir=".">
-	<import file="../org.eclipse.imp.feature/buildCommon.xml"/>
+	<import file="../org.eclipse.imp.metatooling.feature/buildCommon.xml"/>
 	<import file="../org.eclipse.imp.update/buildFeatureCommon.xml"/>
 
 	<target name="init">
-		<property name="feature.name"        value="${imp.feature(id)}"/>
-		<property name="feature.version"     value="${imp.version}"/>
+		<property name="feature.name"        value="${imp.metatooling.feature(id)}"/>
+		<property name="feature.version"     value="${imp.metatooling.version}"/>
 		<property name="feature.temp.folder" value="${basedir}/feature.temp.folder"/>
 		<property name="feature.destination" value="${basedir}"/>
 
