@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.imp.metatooling"
       label="%featureName"
-      version="0.1.92"
+      version="0.1.93"
       provider-name="%providerName"
       plugin="org.eclipse.imp.metatooling"
       image="eclipse_update_120.jpg">
