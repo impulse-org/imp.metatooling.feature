@@ -47,35 +47,35 @@
          id="org.eclipse.imp.cheatsheets"
          download-size="36"
          install-size="36"
-         version="0.1.81"
+         version="0.1.82"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.metatooling"
          download-size="442"
          install-size="442"
-         version="0.1.89"
+         version="0.1.90"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.preferences"
          download-size="14"
          install-size="14"
-         version="0.1.83"
+         version="0.1.84"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.prefspecs"
          download-size="280"
          install-size="280"
-         version="0.1.86"
+         version="0.1.87"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.presentation"
          download-size="0"
          install-size="0"
-         version="0.1.5"
+         version="0.1.6"
          unpack="false"/>
 
 </feature>
