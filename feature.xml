@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.imp.metatooling"
       label="%featureName"
-      version="0.1.95"
+      version="0.1.96"
       provider-name="%providerName"
       plugin="org.eclipse.imp.metatooling"
       image="eclipse_update_120.jpg">
@@ -68,7 +68,7 @@
          id="org.eclipse.imp.prefspecs"
          download-size="280"
          install-size="280"
-         version="0.1.89"
+         version="0.1.90"
          unpack="false"/>
 
    <plugin
