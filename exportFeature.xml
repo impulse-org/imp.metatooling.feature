@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="org.eclipse.imp.metatooling.feature" default="build.feature.jar" basedir=".">
-	<import file="../org.eclipse.imp.update/buildCommon.xml"/>
-	<import file="../org.eclipse.imp.update/buildFeatureCommon.xml"/>
-
-	<property name="imp.metatooling.version" value="${feature(version)}"/>
-</project>
