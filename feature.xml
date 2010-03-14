@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.imp.metatooling"
       label="%featureName"
-      version="0.1.96.qualifier"
+      version="0.1.97.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.imp.metatooling"
       image="eclipse_update_120.jpg">
@@ -47,35 +47,35 @@
          id="org.eclipse.imp.cheatsheets"
          download-size="36"
          install-size="36"
-         version="0.1.83.qualifier"
+         version="0.1.84.qualifier"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.metatooling"
          download-size="442"
          install-size="442"
-         version="0.1.92.qualifier"
+         version="0.1.93.qualifier"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.preferences"
          download-size="14"
          install-size="14"
-         version="0.1.86.qualifier"
+         version="0.1.87.qualifier"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.prefspecs"
          download-size="280"
          install-size="280"
-         version="0.1.90.qualifier"
+         version="0.1.91.qualifier"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.presentation"
          download-size="0"
          install-size="0"
-         version="0.1.7.qualifier"
+         version="0.1.8.qualifier"
          unpack="false"/>
 
 </feature>
