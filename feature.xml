@@ -61,14 +61,14 @@
          id="org.eclipse.imp.preferences"
          download-size="14"
          install-size="14"
-         version="0.1.89.qualifier"
+         version="0.1.90.qualifier"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.imp.prefspecs"
          download-size="280"
          install-size="280"
-         version="0.1.93.qualifier"
+         version="0.1.94.qualifier"
          unpack="false"/>
 
    <plugin
